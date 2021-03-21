@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { XIAO_TOKEN, OWNERS, XIAO_PREFIX, INVITE } = process.env;
+const { OWNERS, XIAO_PREFIX, INVITE } = process.env;
 const path = require('path');
 const Client = require('./structures/Client');
 const client = new Client({
@@ -59,4 +59,5 @@ client.on('warn', warn => client.logger.warn(warn));
 
 client.on('commandError', (command, err) => client.logger.error(`[COMMAND:${command.name}]\n${err.stack}`));
 
-client.login(XIAO_TOKEN);
+
+client.login(process.env.BOT_TOKEN);
